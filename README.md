@@ -20,7 +20,6 @@
 | Full OS inside each VM | Shares host OS kernel |
 | Heavy, slow startup | Lightweight, fast startup |
 | GBs of size | MBs of size |
-| Good for strong isolation | Great for app packaging |
 
 ---
 
