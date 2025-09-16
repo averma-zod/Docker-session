@@ -1,11 +1,23 @@
-from flask import Flask, request
+from flask import Flask, render_template, request, redirect
+import random
 
 app = Flask(__name__)
 
-@app.route('/')
+# Store all submitted users
+users = []
+
+emojis = ["🚀", "🌟", "🔥", "🎉", "🐳", "🍕", "☕", "🦄", "💡", "🏆"]
+
+@app.route('/', methods=['GET', 'POST'])
 def home():
-    name = request.args.get('name', 'there')
-    return f"👋 Hello {name}, welcome to Docker on AWS! 🚀"
+    global users
+    if request.method == 'POST':
+        name = request.form.get('name')
+        if name:
+            emoji = random.choice(emojis)
+            users.append((name, emoji))
+        return redirect('/')
+    return render_template('index.html', users=users)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
