@@ -6,7 +6,7 @@ app = Flask(__name__)
 # Store all submitted users
 users = []
 
-emojis = ["🚀", "🌟", "🔥", "🎉", "🐳", "🍕", "☕", "🦄", "💡", "🏆"]
+emojis = ["🚀", "🌟", "🔥", "🎉", "🐳", "🍕", "☕", "🦄", "💡", "🏆","🎅"]
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
